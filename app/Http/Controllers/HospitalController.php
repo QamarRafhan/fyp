@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Customer;
+use App\Models\Hospital;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class HospitalController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Customer $model)
+    public function index(Request $request, Hospital $model)
     {
-        return view('customers.index', [
-            'customers' => $model->paginate(
+        return view('hospitals.index', [
+            'hospitals' => $model->paginate(
                 $request->has('per_page') ?
                     $request->input('per_page') :
                     config('app.global.record_per_page')
@@ -29,8 +29,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $customer = new Customer();
-        return view('customers.edit', compact('customer'));
+        $hospital = new Hospital();
+        return view('hospitals.edit', compact('hospital'));
     }
 
     /**
@@ -41,12 +41,12 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $customer = new Customer();
+        $hospital = new Hospital();
 
-        $data = $request->only($customer->getFillable());
-        $customer->fill($data);
-        $customer->save();
-        return back()->withStatusSuccess(__('Customer created successfully.'));
+        $data = $request->only($hospital->getFillable());
+        $hospital->fill($data);
+        $hospital->save();
+        return back()->withStatusSuccess(__('hospital created successfully.'));
     }
 
     /**
@@ -55,10 +55,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(Hospital $hospital)
     {
 
-        return view('customers.view', ["customer" => $customer]);
+        return view('hospitals.view', ["hospital" => $hospital]);
     }
 
     /**
@@ -67,37 +67,37 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit(Hospital $hospital)
     {
-        return view('customers.edit', compact('customer'));
+        return view('hospitals.edit', compact('hospital'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Customer $customer
+     * @param  hospital $hospital
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, Hospital $hospital)
     {
-        $data = $request->only($customer->getFillable());
+        $data = $request->only($hospital->getFillable());
 
-        $customer->fill($data);
-        $customer->save();
+        $hospital->fill($data);
+        $hospital->save();
 
-        return back()->withStatusSuccess(__('Customer Updated successfully.'));
+        return back()->withStatusSuccess(__('hospital Updated successfully.'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Customer $customer
+     * @param  hospital $hospital
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(Hospital $hospital)
     {
-        $customer->delete();
-        return redirect()->route('customer.index')->withStatusSuccess(__('Customer deleted successfully.'));
+        $hospital->delete();
+        return redirect()->route('hospital.index')->withStatusSuccess(__('hospital deleted successfully.'));
     }
 }

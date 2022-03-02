@@ -42,32 +42,32 @@
         </div>
       </li>
 
-      <li class="nav-item {{ ($activePage == 'customer-management' || $activePage == 'customer.create') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#sidebar-prodcuts" aria-expanded="{{ ($activePage == 'customer-management' || $activePage == 'customer.create') ? 'true' : 'false' }}">
-          <i class="material-icons">people_alt</i>
-          <p>{{ __('customers') }}
+      <li class="nav-item {{ ($activePage == 'hospital-management' || $activePage == 'hospital.create') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#sidebar-prodcuts" aria-expanded="{{ ($activePage == 'hospital-management' || $activePage == 'hospital.create') ? 'true' : 'false' }}">
+          <i class="material-icons">local_hospital</i>
+          <p>{{ __('Hospital') }}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse {{ ($activePage == 'customer-management' || $activePage == 'customer.create')? ' show' : '' }} " id="sidebar-prodcuts">
+        <div class="collapse {{ ($activePage == 'hospital-management' || $activePage == 'hospital.create')? ' show' : '' }} " id="sidebar-prodcuts">
           <ul class="nav">
-            <li class="nav-item{{ $activePage == 'customer-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('customer.index') }}">
+            <li class="nav-item{{ $activePage == 'hospital-management' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('hospital.index') }}">
                 <span class="sidebar-mini"> AC </span>
-                <span class="sidebar-normal"> {{ __('ALL Customers') }} </span>
+                <span class="sidebar-normal"> {{ __('ALL Hospital') }} </span>
               </a>
             </li>
-            <li class="nav-item{{ $activePage == 'customer.create' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('customer.create') }}">
+            <li class="nav-item{{ $activePage == 'hospital.create' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('hospital.create') }}">
                 <span class="sidebar-mini"> AC </span>
-                <span class="sidebar-normal"> {{ __('Add Customer') }} </span>
+                <span class="sidebar-normal"> {{ __('Add Hospital') }} </span>
               </a>
             </li>
           </ul>
         </div>
       </li>
 
-        <li class="nav-item {{ ($activePage == 'vendor-management' || $activePage == 'vendor.create') ? ' active' : '' }}">
+        {{-- <li class="nav-item {{ ($activePage == 'vendor-management' || $activePage == 'vendor.create') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#sidebar-vendors" aria-expanded="{{ ($activePage == 'vendor-management' || $activePage == 'vendor.create') ? 'true' : 'false' }}">
           <i class="material-icons">donut_small</i>
           <p>{{ __('Vendors') }}
@@ -216,7 +216,7 @@
             </li>
           </ul>
         </div>
-      </li>
+      </li> --}}
 
     </ul>
   </div>

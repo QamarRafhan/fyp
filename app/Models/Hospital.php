@@ -9,23 +9,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Customer extends Model
+class Hospital extends Model
 {
     use HasFactory;
 
     /** @var array */
     protected $fillable = [
-        'type',
-        'salutation',
-        'f_name',
-        'l_name',
-        'd_name',
-        'company',
+        'id',
+        'name',
+        'address',
         'email',
-        'phone',
-        'mobile',
-        'website',
-        'user_id',
     ];
 
 

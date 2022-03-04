@@ -42,14 +42,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	Route::resource('hospital', 'HospitalController');
-	Route::resource('vendor', 'VendorController');
-	Route::resource('banks', 'BankingController');
-	Route::resource('materials', 'MaterialController');
-	Route::resource('saleman', 'SalemanController');
-	Route::resource('product', 'ProductController');
-	Route::resource('invoice', 'InvoiceController');
-	Route::resource('stock', 'StockController');
-	Route::get('/invoice_pdf',[InvoiceController::class, 'invoice_pdf']);
+	Route::resource('donor', 'DonorController');
+	Route::resource('blood', 'BloodController');
+
+	
 
 });
 

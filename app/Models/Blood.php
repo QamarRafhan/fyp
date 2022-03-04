@@ -7,18 +7,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Product extends Model
+class Blood extends Model
 {
     use HasFactory;
-    protected $table = 'products';
 
     /** @var array */
     protected $fillable = [
-        'title',
-        'description',
-        'unit',
-        'sku',
+        'group',
 
+       
+        
     ];
     /**
      * Get the record of Variation of the product
@@ -30,24 +28,7 @@ class Product extends Model
         return $this
             ->hasMany(
                 ProductVariation::class,
-                'p_id',
-                'id',
-                'variations'
+                'm_id',
             );
-    }
-
-    /**
-     * The headrs that belong to the product.
-     */
-    public function headers(): BelongsToMany
-    {
-        return $this->belongsToMany(Header::class);
-    }
-    /**
-     * The linings that belong to the product.
-     */
-    public function linings(): BelongsToMany
-    {
-        return $this->belongsToMany(Lining::class);
     }
 }

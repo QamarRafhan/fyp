@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Material;
+use App\Models\Blood;
 use Illuminate\Http\Request;
 
-class MaterialController extends Controller
+class BloodController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Material $model)
+    public function index(Request $request, Blood $model)
     {
-        return view('material.index', [
-            'material' => $model->paginate(
+        return view('blood.index', [
+            'blood' => $model->paginate(
                 $request->has('per_page') ?
                     $request->input('per_page') :
                     config('app.global.record_per_page')
@@ -29,8 +29,8 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        $material = new Material();
-        return view('material.edit', compact('material'));
+        $blood = new Blood();
+        return view('blood.edit', compact('blood'));
     }
 
     /**
@@ -41,12 +41,12 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        $material = new Material();
+        $blood = new Blood();
 
-        $data = $request->only($material->getFillable());
-        $material->fill($data);
-        $material->save();
-        return back()->withStatusSuccess(__('Material created successfully.'));
+        $data = $request->only($blood->getFillable());
+        $blood->fill($data);
+        $blood->save();
+        return back()->withStatusSuccess(__('Blood created successfully.'));
     }
 
     /**
@@ -55,10 +55,10 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Material $material)
+    public function show(Blood $blood)
     {
 
-        return view('material.view', ["material" => $material]);
+        return view('blood.view', ["blood" => $blood]);
     }
 
     /**
@@ -67,37 +67,37 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Material $material)
+    public function edit(Blood $blood)
     {
-        return view('material.edit', compact('material'));
+        return view('blood.edit', compact('blood'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Material $material
+     * @param  Blood $blood
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Material $material)
+    public function update(Request $request, Blood $blood)
     {
-        $data = $request->only($material->getFillable());
+        $data = $request->only($blood->getFillable());
 
-        $material->fill($data);
-        $material->save();
+        $blood->fill($data);
+        $blood->save();
 
-        return back()->withStatusSuccess(__('Material Updated successfully.'));
+        return back()->withStatusSuccess(__('Blood Updated successfully.'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Material $material
+     * @param  Blood $blood
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Material $material)
+    public function destroy(Blood $blood)
     {
-        $material->delete();
-        return redirect()->route('materials.index')->withStatusSuccess(__('Material deleted successfully.'));
+        $blood->delete();
+        return redirect()->route('blood.index')->withStatusSuccess(__('Blood deleted successfully.'));
     }
 }

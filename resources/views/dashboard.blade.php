@@ -10,7 +10,7 @@
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <p class="card-category">Total Products</p>
+              <p class="card-category">Total Users</p>
               <h3 class="card-title">50
                 <small></small>
               </h3>

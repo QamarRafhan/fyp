@@ -97,7 +97,7 @@
 
       <li class="nav-item {{ ($activePage == 'blood-management' || $activePage == 'blood.create') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#sidebar-blood" aria-expanded="{{ ($activePage == 'blood-management' || $activePage == 'blood.create') ? 'true' : 'false' }}">
-          <i class="material-icons">volunteer_activism</i>
+          <i class="material-icons">bloodtype</i>
           <p>{{ __('Blood') }}
             <b class="caret"></b>
           </p>
@@ -114,6 +114,32 @@
               <a class="nav-link" href="{{ route('blood.create') }}">
                 <span class="sidebar-mini"> AC </span>
                 <span class="sidebar-normal"> {{ __('Add Blood') }} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+
+      <li class="nav-item {{ ($activePage == 'receptor-management' || $activePage == 'receptor.create') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#sidebar-receptor" aria-expanded="{{ ($activePage == 'receptor-management' || $activePage == 'receptor.create') ? 'true' : 'false' }}">
+          <i class="material-icons">receipt</i>
+          <p>{{ __('Receptor') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse {{ ($activePage == 'receptor-management' || $activePage == 'receptor.create')? ' show' : '' }} " id="sidebar-receptor">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'receptor-management' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('receptor.index') }}">
+                <span class="sidebar-mini"> AC </span>
+                <span class="sidebar-normal"> {{ __('ALL Receptor') }} </span>
+              </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'receptor.create' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('receptor.create') }}">
+                <span class="sidebar-mini"> AC </span>
+                <span class="sidebar-normal"> {{ __('Add Receptor') }} </span>
               </a>
             </li>
           </ul>

@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('hospital', 'HospitalController');
 	Route::resource('donor', 'DonorController');
 	Route::resource('blood', 'BloodController');
+	Route::resource('receptor', 'ReceptorController');
 
 	
 

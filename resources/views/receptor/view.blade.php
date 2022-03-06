@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'saleman.view', 'titlePage' => __('Saleman Details')])
+@extends('layouts.app', ['activePage' => 'receptor.view', 'titlePage' => __('Receptor Details')])
 
 @section('content')
 <div class="content">
@@ -9,7 +9,7 @@
 
         <div class="card ">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">{{ __('Saleman') }}</h4>
+            <h4 class="card-title">{{ __('Receptor') }}</h4>
             <p class="card-category">{{ __('details') }}</p>
           </div>
           <div class="card-body ">
@@ -29,29 +29,19 @@
 
 
             <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Type</label>
-              <div class="col-sm-7">
-                <div class="form-group bmd-form-group is-filled">
-                  <p>{{$saleman->type}}</p>
-                </div>
-              </div>
-            </div>
-  
-
-            <div class="row">
               <label class="col-sm-2 col-form-label  text-primary">Name</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p> {{$saleman->salutation}} {{$saleman->f_name}} {{$saleman->l_name}}</p>
+                  <p>{{$receptor->name}}</p>
                 </div>
               </div>
             </div>
    
             <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Display</label>
+              <label class="col-sm-2 col-form-label  text-primary">Mobile</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$saleman->d_name}}</p>
+                  <p>{{$receptor->mobile}}</p>
                 </div>
               </div>
             </div>
@@ -59,31 +49,31 @@
               <label class="col-sm-2 col-form-label  text-primary">Email</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$saleman->email}}</p>
+                  <p>{{$receptor->email}}</p>
                 </div>   
               </div>
             </div>
              <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Phone</label>
+              <label class="col-sm-2 col-form-label  text-primary">Address</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$saleman->phone}}</p>
+                  <p>{{$receptor->address}}</p>
                 </div>
               </div> 
             </div>
              <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Mobile</label>
+              <label class="col-sm-2 col-form-label  text-primary">User Name</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$saleman->mobile}}</p>
+                  <p>{{$receptor->username}}</p>
                 </div>
               </div>  
             </div>
              <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Website</label>
+              <label class="col-sm-2 col-form-label  text-primary">Password</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$saleman->website}}</p>
+                  <p>{{$receptor->password}}</p>
                 </div>
               </div> 
             </div>
@@ -91,11 +81,11 @@
               <label class="col-sm-2 col-form-label  text-primary">Creation date</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$saleman->created_at}}</p>
+                  <p>{{$receptor->created_at}}</p>
                 </div> 
               </div>
             </div>
-
+          
           </div>
         </div>
       </div>

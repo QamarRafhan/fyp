@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'stock-management', 'titlePage' => __('Stock listing')])
+@extends('layouts.app', ['activePage' => 'receptor-management', 'titlePage' => __('Receptor listing')])
 
 @section('content')
 <div class="content">
@@ -8,8 +8,8 @@
 
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Stock</h4>
-            <p class="card-category"> Here you can manage Stock</p>
+            <h4 class="card-title ">Receptor</h4>
+            <p class="card-category"> Here you can manage Receptor</p>
           </div>
           <div class="card-body">
             @if (session('status_success'))
@@ -26,7 +26,7 @@
             @endif
             <div class="row">
               <div class="col-12 text-right">
-                <a href="{{route('stock.create')}}" class="btn btn-sm btn-primary">Add Stock</a>
+                <a href="{{route('receptor.create')}}" class="btn btn-sm btn-primary">Add Receptor</a>
               </div>
             </div>
             <div class="table-responsive">
@@ -34,22 +34,23 @@
                 <thead class=" text-primary">
                   <tr>
                     <th>
-                      Stock Name
+                       Name
                     </th>
                     <th>
-                      Vendor Name
+                      Mobile
                     </th>
                     <th>
-                      Product Name
+                      Email
                     </th>
                     <th>
-                      Price              
+                      Address         
                     </th>
                     <th>
-                      Quantity
+                      User Name
                     </th>
-                      <th>
-                      Created At
+                    
+                    <th>
+                      Creation date
                     </th>
                     <th class="text-right">
                       Actions
@@ -58,37 +59,39 @@
                 </thead>
                 <tbody>
 
-                  @foreach ($stock as $single)
+                  @foreach ($receptor as $single)
                   <tr>
                     <td>
-                     {{ ucfirst($single->stock_name) }}
+                      {{ ucfirst($single->name) }}
+                    </td>
+                    <td>
+                      {{ ucfirst($single->mobile) }}
                     </td>
                      <td>
-                      {{ ucfirst($single->vendor->f_name) }}
+                      {{ ucfirst($single->email) }}
                     </td>
                      <td>
-                      {{ ucfirst($single->product->title) }}
+                      {{ ucfirst($single->address  ) }}
                     </td>
                      <td>
-                      {{ ucfirst($single->price) }}
+                      {{ ucfirst($single->username) }}
                     </td>
-                     <td>
-                      {{ ucfirst($single->quantity) }}
-                    </td>
+                
+                   
                     <td>
                       {{$single->created_at}}
                     </td>
                     <td class="td-actions text-right">
                  
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('stock.edit', ['stock'=> $single->id])}}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('receptor.edit', ['receptor'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">edit</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('stock.show', ['stock'=> $single->id])}}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('receptor.show', ['receptor'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">visibility</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <form action="{{route('stock.destroy', ['stock' =>$single->id])}}" method="post" class="d-inline-block">
+                      <form action="{{route('receptor.destroy', ['receptor' =>$single->id])}}" method="post" class="d-inline-block">
                         <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
                           <i class="material-icons">delete</i>
                           <div class="ripple-container"></div>
@@ -103,7 +106,9 @@
               </table>
 
               <div class="la-pagination">
-                {{ $stock->links() }}
+                {{ $receptor->links() }}
+              
+                
               </div>
             </div>
           </div>

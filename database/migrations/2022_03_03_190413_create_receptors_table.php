@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDonorsTable extends Migration
+class CreateReceptorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDonorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('donors', function (Blueprint $table) {
+        Schema::create('receptors', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->bigInteger('mobile')->nullable();
@@ -35,6 +35,6 @@ class CreateDonorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donors');
+        Schema::dropIfExists('receptors');
     }
 }

@@ -37,6 +37,9 @@
                        Name
                     </th>
                     <th>
+                      Mobile
+                    </th>
+                    <th>
                       Email
                     </th>
                     <th>
@@ -60,6 +63,9 @@
                   <tr>
                     <td>
                       {{ ucfirst($single->name) }}
+                    </td>
+                    <td>
+                      {{ ucfirst($single->mobile) }}
                     </td>
                      <td>
                       {{ ucfirst($single->email) }}

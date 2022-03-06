@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Product;
+use App\Models\Receptor;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ReceptorController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Product $model)
+    public function index(Request $request, Receptor $model)
     {
-        return view('products.index', [
-            'products' => $model->paginate(
+        return view('receptor.index', [
+            'receptor' => $model->paginate(
                 $request->has('per_page') ?
                     $request->input('per_page') :
                     config('app.global.record_per_page')
@@ -29,8 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $product = new Product();
-        return view('products.edit', compact('product'));
+        $receptor = new Receptor();
+        return view('receptor.edit', compact('receptor'));
     }
 
     /**
@@ -41,12 +41,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product();
+        $receptor = new Receptor();
 
-        $data = $request->only($product->getFillable());
-        $product->fill($data);
-        $product->save();
-        return back()->withStatusSuccess(__('Product created successfully.'));
+        $data = $request->only($receptor->getFillable());
+        $receptor->fill($data);
+        $receptor->save();
+        return back()->withStatusSuccess(__('Receptor created successfully.'));
     }
 
     /**
@@ -55,10 +55,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Receptor $receptor)
     {
 
-        return view('products.view', ["product" => $product]);
+        return view('receptor.view', ["receptor" => $receptor]);
     }
 
     /**
@@ -67,39 +67,40 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Receptor $receptor)
     {
-        return view('products.edit', compact('product'));
-
+        return view('receptor.edit', compact('receptor'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Product $product
+     * @param  Receptor $receptor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Receptor $receptor)
     {
-        $data = $request->only($product->getFillable());
+        $data = $request->only($receptor->getFillable());
 
-        $product->fill($data);
-        $product->save();
+        $receptor->fill($data);
+        $receptor->save();
 
-
-        return back()->withStatusSuccess(__('Product Updated successfully.'));
+        return back()->withStatusSuccess(__('Receptor Updated successfully.'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Product $product
+     * @param  Receptor $receptor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Receptor $receptor)
     {
-        $product->delete();
-        return redirect()->route('product.index')->withStatusSuccess(__('Product deleted successfully.'));
+        $receptor->delete();
+        return redirect()->route('receptor.index')->withStatusSuccess(__('Receptor deleted successfully.'));
     }
+
+
+
 }

@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Donor extends Model
+class Receptor extends Model
 {
     use HasFactory;
-    protected $table = 'donors';
+    protected $table = 'receptors';
 
     /** @var array */
     protected $fillable = [

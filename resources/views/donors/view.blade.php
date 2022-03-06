@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'invoice.view', 'titlePage' => __('Invoice Details')])
+@extends('layouts.app', ['activePage' => 'donor.view', 'titlePage' => __('Donor Details')])
 
 @section('content')
 <div class="content">
@@ -9,7 +9,7 @@
 
         <div class="card ">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">{{ __('Invoice') }}</h4>
+            <h4 class="card-title">{{ __('Donor') }}</h4>
             <p class="card-category">{{ __('details') }}</p>
           </div>
           <div class="card-body ">
@@ -29,19 +29,19 @@
 
 
             <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Invoice</label>
+              <label class="col-sm-2 col-form-label  text-primary">Name</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$invoice->invoice}}</p>
+                  <p>{{$donor->name}}</p>
                 </div>
               </div>
             </div>
    
             <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Order Number</label>
+              <label class="col-sm-2 col-form-label  text-primary">Mobile</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$invoice->order_num}}</p>
+                  <p>{{$donor->mobile}}</p>
                 </div>
               </div>
             </div>
@@ -49,31 +49,31 @@
               <label class="col-sm-2 col-form-label  text-primary">Email</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$invoice->email}}</p>
+                  <p>{{$donor->email}}</p>
                 </div>   
               </div>
             </div>
              <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Phone</label>
+              <label class="col-sm-2 col-form-label  text-primary">Address</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$invoice->phone}}</p>
+                  <p>{{$donor->address}}</p>
                 </div>
               </div> 
             </div>
              <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Mobile</label>
+              <label class="col-sm-2 col-form-label  text-primary">User Name</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$invoice->mobile}}</p>
+                  <p>{{$donor->username}}</p>
                 </div>
               </div>  
             </div>
              <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Website</label>
+              <label class="col-sm-2 col-form-label  text-primary">Password</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$invoice->website}}</p>
+                  <p>{{$donor->password}}</p>
                 </div>
               </div> 
             </div>
@@ -81,15 +81,11 @@
               <label class="col-sm-2 col-form-label  text-primary">Creation date</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
-                  <p>{{$invoice->created_at}}</p>
+                  <p>{{$donor->created_at}}</p>
                 </div> 
               </div>
             </div>
-            <button btn btn-primary>
-                  
-
-              <a href="{{'/invoice_pdf'}}" class="btn btn-sm btn-primary">Download PDF</a>
-            </button>
+          
           </div>
         </div>
       </div>

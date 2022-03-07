@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Donor;
+use App\Models\Blood;
 use Illuminate\Http\Request;
 
 class DonorController extends Controller
@@ -30,7 +31,8 @@ class DonorController extends Controller
     public function create()
     {
         $donor = new Donor();
-        return view('donors.edit', compact('donor'));
+        $blood_groups =  Blood::all();
+        return view('donors.edit', compact('donor', 'blood_groups'));
     }
 
     /**
@@ -69,7 +71,8 @@ class DonorController extends Controller
      */
     public function edit(Donor $donor)
     {
-        return view('donors.edit', compact('donor'));
+        $blood_groups =  Blood::all();
+        return view('donors.edit', compact('donor', 'blood_groups'));
     }
 
     /**

@@ -23,6 +23,8 @@ class CreateDonorsTable extends Migration
             $table->string('password');
             $table->double('latitude')->nullable();
             $table->double('longitude')->nullable();
+            $table->unsignedBigInteger('blood_id')->nullable();
+            $table->foreign('blood_id')->references('id')->on('bloods')->onDelete('set null');
            
             $table->timestamps();
         });

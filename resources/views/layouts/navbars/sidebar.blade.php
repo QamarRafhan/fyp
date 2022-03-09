@@ -146,6 +146,31 @@
         </div>
       </li>
 
+
+      <li class="nav-item {{ ($activePage == 'donation-management' || $activePage == 'donation.create') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#sidebar-donation" aria-expanded="{{ ($activePage == 'donation-management' || $activePage == 'donation.create') ? 'true' : 'false' }}">
+          <i class="material-icons">receipt</i>
+          <p>{{ __('Donation') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse {{ ($activePage == 'donation-management' || $activePage == 'donation.create')? ' show' : '' }} " id="sidebar-donation">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'donation-management' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('donation.index') }}">
+                <span class="sidebar-mini"> AC </span>
+                <span class="sidebar-normal"> {{ __('ALL Donation') }} </span>
+              </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'donation.create' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('donation.create') }}">
+                <span class="sidebar-mini"> AC </span>
+                <span class="sidebar-normal"> {{ __('Add Donation') }} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
        
 
     </ul>

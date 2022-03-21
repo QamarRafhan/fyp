@@ -33,14 +33,14 @@
                                     </div>
                                 </div>
                             @endif
-                            <div class="row">
-                                <label class="col-sm-2 col-form-label" for="hospital_id">{{ __('Hospitals') }}</label>
+                            {{-- <div class="row">
+                                <label class="col-sm-2 col-form-label" for="hospital_id">{{ __('Donation') }}</label>
                                 <div class="col-sm-7">
-                                    <div class="form-group {{ $errors->has('hospitals_id') ? ' has-danger' : '' }}">
+                                    <div class="form-group {{ $errors->has('hospital_id') ? ' has-danger' : '' }}">
                                         <select
-                                            class="form-control {{ $errors->has('hospitals_id') ? ' is-invalid' : '' }}"
-                                            type="text" name="hospital_id" id="hospitals_id" required />
-                                        @foreach ($hospitals as $single)
+                                            class="form-control {{ $errors->has('hospital_id') ? ' is-invalid' : '' }}"
+                                            type="text" name="hospital_id" id="donation_id" required />
+                                        @foreach ($donation as $single)
                                             <option value={{ $single->id }}>
                                                 {{ $single->name }}
                                             </option>
@@ -52,7 +52,7 @@
                                         @endif
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row">
                                 <label class="col-sm-2 col-form-label" for="donor_id">{{ __('Donor') }}</label>
                                 <div class="col-sm-7">

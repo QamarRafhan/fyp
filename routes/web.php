@@ -5,6 +5,8 @@ use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\Home2Controller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,9 @@ use App\Http\Controllers\InvoiceController;
 */
 
 
+
+
+Route::get('/home2', 'HomeController@index2');
 
 Auth::routes();
 

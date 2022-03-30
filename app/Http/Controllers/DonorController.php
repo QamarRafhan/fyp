@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Donor;
 use App\Models\Blood;
 use Illuminate\Http\Request;
@@ -103,7 +104,22 @@ class DonorController extends Controller
         $donor->delete();
         return redirect()->route('donor.index')->withStatusSuccess(__('Donor deleted successfully.'));
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function donors(Request $request, Donor $model)
+    {
 
 
-
+        return view('frontend.donor');
+        return view('donors.index', [
+            'donors' => $model->paginate(
+                $request->has('per_page') ?
+                    $request->input('per_page') :
+                    config('app.global.record_per_page')
+            )
+        ]);
+    }
 }

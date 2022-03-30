@@ -22,19 +22,17 @@ use App\Http\Controllers\Home2Controller;
 
 
 
-Route::get('/home2', 'HomeController@index2');
+Route::get('/', 'HomeController@index2')->name('home');
 
+Route::get('/location', 'HomeController@location')->name('home');
 Auth::routes();
 
 
-Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('/home', 'HomeController@index')->middleware('auth');
-
+Route::get('/dashboard', 'HomeController@index')->middleware('auth');
+Route::get('/donors', 'DonorController@donors')->name('donors');
 Route::group(['middleware' => 'auth'], function () {
 	
-
-
-
 
 
 });

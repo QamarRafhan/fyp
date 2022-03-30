@@ -34,4 +34,10 @@ class HomeController extends Controller
     
         return view('home.home2');
     }
+
+    public function location()
+    {
+    
+        return view('testdashboard');
+    }
 }

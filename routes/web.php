@@ -31,6 +31,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->middleware('auth');
 Route::get('/dashboard', 'HomeController@index')->middleware('auth');
 Route::get('/donors', 'DonorController@donors')->name('donors');
+Route::get('/bloodrequest', 'DonorController@bloodrequest')->name('bloodrequest');
 Route::group(['middleware' => 'auth'], function () {
 	
 

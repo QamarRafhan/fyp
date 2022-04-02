@@ -125,7 +125,6 @@ class DonorController extends Controller
     }
 
     public function bloodrequest(Donor $donor)
-
     {
         $hospital =  Hospital::all();
         return view('frontend.bloodrequest', compact('donor', 'hospital'));

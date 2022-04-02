@@ -100,4 +100,9 @@ class BloodController extends Controller
         $blood->delete();
         return redirect()->route('blood.index')->withStatusSuccess(__('Blood deleted successfully.'));
     }
+
+    public function bloodrequest()
+    {
+        dd("asdfjsdfsdlfsdlf");
+    }
 }

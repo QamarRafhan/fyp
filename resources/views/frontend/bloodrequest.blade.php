@@ -21,10 +21,9 @@
                                 {{ ucfirst($single->name) }}
                             </td>
                             <td>
-
                                 <a rel="tooltip" class="btn btn-success btn-link"
-                                    href="{{ route('bloodrequest', ['donor' => $single->id]) }}" data-original-title=""
-                                    title="">
+                                    href="{{ route('hospitalbloodrequest', [ 'hospital' => $single->id,  'donors' => $donor->id]) }}"
+                                    data-original-title="" title="">
                                     <button class="btn btn-danger">Request</button>
                                     <div class="ripple-container"></div>
                                 </a>

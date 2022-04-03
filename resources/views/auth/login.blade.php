@@ -12,7 +12,7 @@
 
 
         @if( request()->get('redirect') )
-                <input type="hiden" name="redirect"  value="{{  request()->get('redirect') }}">
+                <input type="hidden" name="redirect"  value="{{  request()->get('redirect') }}">
         @endif
 
         <div class="card card-login card-hidden mb-3">

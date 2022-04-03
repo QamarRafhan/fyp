@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Donor;
 use App\Models\Blood;
 use App\Models\Hospital;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DonorController extends Controller
@@ -110,21 +111,14 @@ class DonorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function donors(Request $request, Donor $model)
+    public function donors(Request $request)
     {
 
-        $donor =  Donor::all();
+        $donor =  User::where('role', 'donor')->get();
         return view('frontend.donor', compact('donor'));
-        return view('donors.index', [
-            'donors' => $model->paginate(
-                $request->has('per_page') ?
-                    $request->input('per_page') :
-                    config('app.global.record_per_page')
-            )
-        ]);
     }
 
-    public function bloodrequest(Donor $donor)
+    public function bloodrequest(User $donor)
     {
     
         $hospital =  Hospital::all();

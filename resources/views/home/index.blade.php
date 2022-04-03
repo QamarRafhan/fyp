@@ -16,10 +16,10 @@
             </div>
             
                 <ul class="meanu-bar">
-                    <a href="#" class="data">
+                    <a href="/" class="data">
                         <li>Home </li>
                     </a>
-                    <a href="#" class="data">
+                    <a href="/donors" class="data">
                         <li> BloodDonate </li>
                     </a>
                     <a href="#" class="data">

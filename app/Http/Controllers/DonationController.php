@@ -34,6 +34,7 @@ class DonationController extends Controller
     {
         $donation = new Donation();
         $hospitals =  Hospital::all();
+        dd( $hospitals );
         $donors =  Donor::all();
         $receptors =  Receptor::all();
         return view('donation.edit', compact('donation','hospitals','donors','receptors'));

@@ -61,7 +61,7 @@
                                         @foreach ($donation as $single)
                                             <tr>
                                                 <td>
-                                                    {{ ucfirst($single->name) }}
+                                                    {{ ucfirst($single->hospital_id) }}
                                                 </td>
                                                 <td>
                                                     {{ ucfirst($single->blood ? $single->blood->group : '') }}

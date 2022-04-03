@@ -5,6 +5,7 @@ use App\Models\Blood;
 use App\Models\Donor;
 use App\Models\Donation;
 use App\Models\Hospital;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BloodController extends Controller
@@ -104,7 +105,7 @@ class BloodController extends Controller
         return redirect()->route('blood.index')->withStatusSuccess(__('Blood deleted successfully.'));
     }
 
-    public function bloodrequest(Donor $donor, Hospital $hospital)
+    public function bloodrequest(User $donor, Hospital $hospital)
     {
         $donation= new Donation();
         $donation->hospital_id= $hospital->id;

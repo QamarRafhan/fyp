@@ -39,11 +39,11 @@
                       Email
                     </th>
                     <th>
-                      Address         
+                      City         
                     </th>
-                    <th>
+                    {{-- <th>
                       User Name
-                    </th>
+                    </th> --}}
                     
                     <th>
                       Creation date
@@ -67,11 +67,11 @@
                       {{ ucfirst($single->email) }}
                     </td>
                      <td>
-                      {{ ucfirst($single->address  ) }}
+                      {{ ucfirst($single->city  ) }}
                     </td>
-                     <td>
+                     {{-- <td>
                       {{ ucfirst($single->username) }}
-                    </td>
+                    </td> --}}
                 
                    
                     <td>

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Donor;
-use App\Models\Blood;
-use App\Models\Hospital;
 use App\Models\User;
+use App\Models\Blood;
+use App\Models\Donor;
+use App\Models\Hospital;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class DonorController extends Controller
 {
@@ -114,7 +115,18 @@ class DonorController extends Controller
     public function donors(Request $request)
     {
 
-        $donor =  User::where('role', 'donor')->get();
+        $query =  User::where('role', 'donor');
+       
+
+       if($request->group){
+           $query-> whereHas('blood', function (Builder $query)use($request) {
+            $query->where('group', $request->group);
+        });
+       }
+       if($request->city){
+        $query->where('city', $request->city);
+    }
+       $donor=$query->get();
         return view('frontend.donor', compact('donor'));
     }
 

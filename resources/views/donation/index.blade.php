@@ -78,7 +78,7 @@
                                                     {{ ucfirst($single->receptor ? $single->receptor->name : '') }}
                                                 </td>
                                                 <td>
-                                                    {{ ucfirst($single->donor ? $single->donor->blood?$single->donor->blood->group:'' : '') }}
+                                                    {{ ucfirst($single->donor ? $single->donor->blood ? $single->donor->blood->group:'' : '') }}
                                                 </td>
                                                 <td>
                                                     {{ ucfirst($single->created_at) }}

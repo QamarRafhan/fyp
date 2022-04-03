@@ -17,8 +17,19 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->useCurrent();
             $table->string('password');
+            $table->enum('role', ['admin', 'donor', 'receptor'])->default('donor');
+            $table->bigInteger('mobile')->nullable();
+            $table->string('city')->nullable();
+            $table->string('area')->nullable();
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
+            $table->unsignedBigInteger('blood_id')->nullable();
+            $table->foreign('blood_id')->references('id')->on('bloods')->onDelete('set null');
+
+
+
             $table->rememberToken();
             $table->timestamps();
         });

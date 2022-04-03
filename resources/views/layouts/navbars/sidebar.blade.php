@@ -24,7 +24,7 @@
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse  {{ ($activePage == 'profile' || $activePage == 'user-management')? ' show' : '' }} " id="users">
+        <div class="collapse  {{ ($activePage == 'profile' || str_contains($activePage, 'user-management'))? ' show' : '' }} " id="users">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -32,12 +32,27 @@
                 <span class="sidebar-normal">{{ __('User profile') }} </span>
               </a>
             </li>
-            <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('user.index') }}">
-                <span class="sidebar-mini"> UM </span>
-                <span class="sidebar-normal"> {{ __('User Management') }} </span>
+            <li class="nav-item{{ $activePage == 'user-management-admin' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('user.index' , ['role'=> 'admin']) }}">
+                <span class="sidebar-mini"> AU </span>
+                <span class="sidebar-normal"> {{ __('Admin User') }} </span>
               </a>
             </li>
+
+            <li class="nav-item{{ $activePage == 'user-management-donor' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('user.index', ['role'=> 'donor']) }}">
+                <span class="sidebar-mini"> DO </span>
+                <span class="sidebar-normal"> {{ __('Donors') }} </span>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'user-management-receptor' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('user.index', ['role'=> 'receptor']) }}">
+                <span class="sidebar-mini"> RE   </span>
+                <span class="sidebar-normal"> {{ __('Receptors') }} </span>
+              </a>
+            </li>
+
           </ul>
         </div>
       </li>
@@ -69,30 +84,6 @@
 
 
 
-      <li class="nav-item {{ ($activePage == 'donor-management' || $activePage == 'donor.create') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#sidebar-donor" aria-expanded="{{ ($activePage == 'donor-management' || $activePage == 'donor.create') ? 'true' : 'false' }}">
-          <i class="material-icons">volunteer_activism</i>
-          <p>{{ __('Donor') }}
-            <b class="caret"></b>
-          </p>
-        </a>
-        <div class="collapse {{ ($activePage == 'donor-management' || $activePage == 'donor.create')? ' show' : '' }} " id="sidebar-donor">
-          <ul class="nav">
-            <li class="nav-item{{ $activePage == 'donor-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('donor.index') }}">
-                <span class="sidebar-mini"> AC </span>
-                <span class="sidebar-normal"> {{ __('ALL Donor') }} </span>
-              </a>
-            </li>
-            <li class="nav-item{{ $activePage == 'donor.create' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('donor.create') }}">
-                <span class="sidebar-mini"> AC </span>
-                <span class="sidebar-normal"> {{ __('Add Donor') }} </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
 
 
       <li class="nav-item {{ ($activePage == 'blood-management' || $activePage == 'blood.create') ? ' active' : '' }}">
@@ -119,42 +110,15 @@
           </ul>
         </div>
       </li>
-
-
-      <li class="nav-item {{ ($activePage == 'receptor-management' || $activePage == 'receptor.create') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#sidebar-receptor" aria-expanded="{{ ($activePage == 'receptor-management' || $activePage == 'receptor.create') ? 'true' : 'false' }}">
-          <i class="material-icons">receipt</i>
-          <p>{{ __('Receptor') }}
-            <b class="caret"></b>
-          </p>
-        </a>
-        <div class="collapse {{ ($activePage == 'receptor-management' || $activePage == 'receptor.create')? ' show' : '' }} " id="sidebar-receptor">
-          <ul class="nav">
-            <li class="nav-item{{ $activePage == 'receptor-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('receptor.index') }}">
-                <span class="sidebar-mini"> AC </span>
-                <span class="sidebar-normal"> {{ __('ALL Receptor') }} </span>
-              </a>
-            </li>
-            <li class="nav-item{{ $activePage == 'receptor.create' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('receptor.create') }}">
-                <span class="sidebar-mini"> AC </span>
-                <span class="sidebar-normal"> {{ __('Add Receptor') }} </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-
-
-      <li class="nav-item {{ ($activePage == 'donation-management' || $activePage == 'donation.create') ? ' active' : '' }}">
+ 
+       <li class="nav-item {{ ($activePage == 'donation-management' ) ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#sidebar-donation" aria-expanded="{{ ($activePage == 'donation-management' || $activePage == 'donation.create') ? 'true' : 'false' }}">
           <i class="material-icons">receipt</i>
           <p>{{ __('Donation') }}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse {{ ($activePage == 'donation-management' || $activePage == 'donation.create')? ' show' : '' }} " id="sidebar-donation">
+        <div class="collapse {{ ($activePage == 'donation-management' )? ' show' : '' }} " id="sidebar-donation">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'donation-management' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('donation.index') }}">
@@ -162,12 +126,7 @@
                 <span class="sidebar-normal"> {{ __('ALL Donation') }} </span>
               </a>
             </li>
-            <li class="nav-item{{ $activePage == 'donation.create' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('donation.create') }}">
-                <span class="sidebar-mini"> AC </span>
-                <span class="sidebar-normal"> {{ __('Add Donation') }} </span>
-              </a>
-            </li>
+          
           </ul>
         </div>
       </li>

@@ -25,8 +25,8 @@ class CreateDonationsTable extends Migration
             $table->timestamps();
 
             $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('set null');
-            $table->foreign('donor_id')->references('id')->on('donors')->onDelete('set null');
-            $table->foreign('receptor_id')->references('id')->on('receptors')->onDelete('set null');
+            $table->foreign('donor_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('receptor_id')->references('id')->on('users')->onDelete('set null');
         });
 
 

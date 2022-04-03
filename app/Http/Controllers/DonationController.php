@@ -106,4 +106,23 @@ class DonationController extends Controller
         $donation->delete();
         return redirect()->route('donation.index')->withStatusSuccess(__('Donation deleted successfully.'));
     }
+
+
+
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function donations(Request $request, Donation $model)
+    {
+        return view('frontend.donation.index', [
+            'donations' => $model->paginate(
+                $request->has('per_page') ?
+                    $request->input('per_page') :
+                    config('app.global.record_per_page')
+            )
+        ]);
+    }
 }

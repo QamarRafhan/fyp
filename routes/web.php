@@ -24,19 +24,21 @@ use App\Http\Controllers\Home2Controller;
 
 Route::get('/', 'HomeController@index2')->name('home');
 
-Route::get('/location', 'HomeController@location')->name('home');
+Route::get('/location', 'HomeController@location')->name('location');
 Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->middleware('auth');
 Route::get('/dashboard', 'HomeController@index')->middleware('auth');
 Route::get('/donors', 'DonorController@donors')->name('donors');
-Route::get('/hospitalbloodrequest', 'BloodController@bloodrequest')->name('hospitalbloodrequest');
-Route::get('/bloodrequest', 'DonorController@bloodrequest')->name('bloodrequest');
+
+
+Route::get('/bloodrequest/{donor}', 'DonorController@bloodrequest')->name('bloodrequest');
+Route::get('/hospitalbloodrequest/{donor}/{hospital}', 'BloodController@bloodrequest')->name('hospitalbloodrequest');
+
+
+
 Route::group(['middleware' => 'auth'], function () {
-	
-
-
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -47,12 +49,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	Route::resource('hospital', 'HospitalController');
-	Route::resource('donor', 'DonorController');
 	Route::resource('blood', 'BloodController');
-	Route::resource('receptor', 'ReceptorController');
-	Route::resource('donation', 'DonationController');
-
-	
-
+	Route::resource('donation', 'DonationController')->except([
+		'create'
+	]);;
 });
-

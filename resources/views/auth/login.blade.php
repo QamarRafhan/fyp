@@ -10,6 +10,11 @@
       <form class="form" method="POST" action="{{ route('login') }}">
         @csrf
 
+
+        @if( request()->get('redirect') )
+                <input type="hiden" name="redirect"  value="{{  request()->get('redirect') }}">
+        @endif
+
         <div class="card card-login card-hidden mb-3">
           <div class="card-header card-header-primary text-center">
             <h4 class="card-title"><strong>{{ __('Login') }}</strong></h4>

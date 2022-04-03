@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Blood;
+use App\Models\Donor;
+use App\Models\Donation;
+use App\Models\Hospital;
 use Illuminate\Http\Request;
 
 class BloodController extends Controller
@@ -101,8 +104,13 @@ class BloodController extends Controller
         return redirect()->route('blood.index')->withStatusSuccess(__('Blood deleted successfully.'));
     }
 
-    public function bloodrequest()
+    public function bloodrequest(Donor $donor, Hospital $hospital)
     {
-        dd("asdfjsdfsdlfsdlf");
-    }
+        $donation= new Donation();
+        $donation->hospital_id= $hospital->id;
+        $donation->donor_id= $donor->id;
+        $donation->donor_id= null;
+        $donation->save();
+        return redirect()->route('donation.index')->withStatusSuccess(__('Blood Request submitted successfully.'));
+    } 
 }

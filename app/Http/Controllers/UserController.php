@@ -17,6 +17,10 @@ class UserController extends Controller
      */
     public function index(Request $request, User $model)
     {
+    
+        if($request->role) {
+            $model=  $model->where('role', $request->role);
+        }
         return view('users.index', ['users' => $model->paginate(
             $request->has('per_page') ?
                 $request->input('per_page') :

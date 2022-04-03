@@ -217,7 +217,7 @@
                         Email
                     </th>
                     <th>
-                        Address
+                        City
                     </th>
                     <th>
                         Mobile
@@ -240,7 +240,7 @@
                         {{ ucfirst($single->email) }}
                     </td>
                     <td>
-                        {{ ucfirst($single->address) }}
+                        {{ ucfirst($single->city) }}
                     </td>
                     <td>
                         <a href="tel: {{ ucfirst($single->mobile) }}">

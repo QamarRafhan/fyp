@@ -107,10 +107,13 @@ class BloodController extends Controller
 
     public function bloodrequest(User $donor, Hospital $hospital)
     {
+        // dd(auth()->user()->id);
         $donation= new Donation();
         $donation->hospital_id= $hospital->id;
         $donation->donor_id= $donor->id;
-        $donation->donor_id= null;
+        
+        $donation->receptor_id= auth()->user()->id;
+
         $donation->save();
         return redirect()->route('donation.index')->withStatusSuccess(__('Blood Request submitted successfully.'));
     } 

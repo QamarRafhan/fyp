@@ -33,12 +33,13 @@ Route::get('/dashboard', 'HomeController@index')->middleware('auth');
 Route::get('/donors', 'DonorController@donors')->name('donors');
 
 
-Route::get('/bloodrequest/{donor}', 'DonorController@bloodrequest')->name('bloodrequest');
-Route::get('/hospitalbloodrequest/{donor}/{hospital}', 'BloodController@bloodrequest')->name('hospitalbloodrequest');
+
 
 
 
 Route::group(['middleware' => 'auth'], function () {
+	Route::get('/bloodrequest/{donor}', 'DonorController@bloodrequest')->name('bloodrequest');
+Route::get('/hospitalbloodrequest/{donor}/{hospital}', 'BloodController@bloodrequest')->name('hospitalbloodrequest');
 });
 
 Route::group(['middleware' => 'auth'], function () {

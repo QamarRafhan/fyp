@@ -43,7 +43,7 @@
                       Email
                     </th>
                     <th>
-                      Address         
+                      City         
                     </th>
                     <th>
                       User Name
@@ -71,7 +71,7 @@
                       {{ ucfirst($single->email) }}
                     </td>
                      <td>
-                      {{ ucfirst($single->address  ) }}
+                      {{ ucfirst($single->city  ) }}
                     </td>
                      <td>
                       {{ ucfirst($single->username) }}

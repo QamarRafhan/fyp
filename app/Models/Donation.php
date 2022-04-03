@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Hospital;
 use App\Models\Donations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -30,5 +31,17 @@ class Donation extends Model
     {
         return $this->belongsTo(Blood::class);
     }
-
+    public function hospital(): BelongsTo
+    {
+        return $this->belongsTo(Hospital::class);
+    }
+    public function donor(): BelongsTo
+    {
+        return $this->belongsTo(User::class , 'donor_id');
+    }
+    public function receptor(): BelongsTo
+    {
+        return $this->belongsTo(User::class ,'receptor_id');
+    }
+    
 }

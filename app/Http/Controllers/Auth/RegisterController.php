@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blood;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -68,8 +69,24 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'city' => $data['city'],
+             'latitude' => $data['latitude'],
+             'longitude' => $data['longitude'],
+             'mobile' => $data['mobile'],
+             'blood_id' => $data['blood_id'],
             'password' => Hash::make($data['password']),
             'role' => $data['role'],
         ]);
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        $blood_types =  Blood::all();
+        return view('auth.register', compact('blood_types'));
     }
 }

@@ -40,8 +40,16 @@
                                                 Receptor
                                             </th>
                                             <th>
+                                                Blood Group
+                                            </th>
+                                            <th>
+                                                Request Date
+                                            </th>
+
+                                            <th>
                                                 Blood Extraction Date
                                             </th>
+
                                             <th>
                                                 Blood Transformation Date
 
@@ -61,13 +69,19 @@
                                         @foreach ($donation as $single)
                                             <tr>
                                                 <td>
-                                                    {{ ucfirst($single->hospital_id) }}
+                                                    {{ ucfirst($single->hospital->name) }}
                                                 </td>
                                                 <td>
-                                                    {{ ucfirst($single->blood ? $single->blood->group : '') }}
+                                                    {{ ucfirst($single->donor ? $single->donor->name : '') }}
                                                 </td>
                                                 <td>
-                                                    {{ ucfirst($single->mobile) }}
+                                                    {{ ucfirst($single->receptor ? $single->receptor->name : '') }}
+                                                </td>
+                                                <td>
+                                                    {{ ucfirst($single->donor ? $single->donor->blood?$single->donor->blood->group:'' : '') }}
+                                                </td>
+                                                <td>
+                                                    {{ ucfirst($single->created_at) }}
                                                 </td>
                                                 <td>
                                                     {{ ucfirst($single->email) }}

@@ -7,6 +7,8 @@ use App\Models\Blood;
 use App\Models\Donor;
 use App\Models\Hospital;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 
 class DonorController extends Controller
@@ -115,6 +117,25 @@ class DonorController extends Controller
     public function donors(Request $request)
     {
 
+
+        $query = "select * ";
+        if(Auth::user()) {
+            $user_id = Auth::user()->id;
+           // dd($user_id);
+
+           $query.= ", ( 6371  acos( cos( radians(31.4858556) )  cos( radians( latitude ) )  cos( radians( longitude ) - radians(74.2911428) ) + sin( radians(31.4858556) )  sin( radians( latitude ) ) ) ) AS distance ";
+          
+        //    SELECT id,  FROM users ORDER BY `distance` DESC
+
+        //    select * from `users` where `role` = ? and exists (select * from `bloods` where `users`.`blood_id` = `bloods`.`id` and `group` = ?) and `city` = ?
+
+
+        }
+
+        $query.= " from users ";
+
+        dd(DB::select($query));
+  
         $query =  User::where('role', 'donor');
        
 
@@ -125,7 +146,9 @@ class DonorController extends Controller
        }
        if($request->city){
         $query->where('city', $request->city);
-    }
+       }
+
+    dd($query->toSql());
        $donor=$query->get();
         return view('frontend.donor', compact('donor'));
     }

@@ -221,7 +221,9 @@
                     <th>
                         Email
                     </th>
-                    
+                    <th>
+                      Distance
+                    </th>
                     
                    
                     <th>
@@ -247,6 +249,11 @@
                     </td>
                     <td>
                         {{ ucfirst($single->email) }}
+                    </td>
+
+
+                    <td>
+                        {{ $single->distance? round($single->distance, 2). ' KM': '' }}
                     </td>
                     
                    

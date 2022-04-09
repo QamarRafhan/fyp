@@ -118,47 +118,35 @@ class DonorController extends Controller
     {
 
 
-        $query = "select * ";
-        if(Auth::user()) {
-            $user_id = Auth::user()->id;
-           // dd($user_id);
+        $query = User::where('role', 'donor');
 
-           $query.= ", ( 6371  acos( cos( radians(31.4858556) )  cos( radians( latitude ) )  cos( radians( longitude ) - radians(74.2911428) ) + sin( radians(31.4858556) )  sin( radians( latitude ) ) ) ) AS distance ";
-          
-        //    SELECT id,  FROM users ORDER BY `distance` DESC
-
-        //    select * from `users` where `role` = ? and exists (select * from `bloods` where `users`.`blood_id` = `bloods`.`id` and `group` = ?) and `city` = ?
-
-
+        $user = Auth::user();
+        $orderby = null;
+        if ($user &&  $user->latitude &&  $user->longitude) {
+            $orderby = 'distance';
+            $query->select('*',  DB::raw(" ( 6371 * acos( cos( radians($user->latitude) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians($user->longitude) ) + sin( radians($user->latitude) ) * sin( radians( latitude ) ) ) ) As distance"));
         }
 
-        $query.= " from users ";
+        if ($request->group) {
+            $query->whereHas('blood', function (Builder $query) use ($request) {
+                $query->where('group', $request->group);
+            });
+        }
+        if ($request->city) {
 
-        dd(DB::select($query));
-  
-        $query =  User::where('role', 'donor');
-       
-
-       if($request->group){
-           $query-> whereHas('blood', function (Builder $query)use($request) {
-            $query->where('group', $request->group);
-        });
-       }
-       if($request->city){
-        $query->where('city', $request->city);
-       }
-
-    dd($query->toSql());
-       $donor=$query->get();
+            $query->where('city', $request->city);
+        }
+        if ($orderby) {
+            $query->orderby($orderby);
+        }
+        $donor = $query->get();
         return view('frontend.donor', compact('donor'));
     }
 
     public function bloodrequest(User $donor)
     {
-    
+
         $hospital =  Hospital::all();
         return view('frontend.bloodrequest', compact('donor', 'hospital'));
-       
     }
-    
 }

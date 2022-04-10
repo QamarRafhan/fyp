@@ -67,6 +67,28 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label" for="Latitude">{{ __('Latitude') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('latitude') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('latitude') ? ' is-invalid' : '' }}" type="text" name="latitude" id="latitude" placeholder="{{ __('Latitude') }}" value="{{old('Llatitude', $hospital->latitude)}}" required />
+                      @if ($errors->has('email'))
+                      <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('latitude') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label" for="Longititude">{{ __('Longititude') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('longitude') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('longitude') ? ' is-invalid' : '' }}" type="text" name="longitude" id="longitude" placeholder="{{ __('Longitude') }}" value="{{old('Llongitude', $hospital->longitude)}}" required />
+                      @if ($errors->has('email'))
+                      <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('longitude') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
 
 
               </div>

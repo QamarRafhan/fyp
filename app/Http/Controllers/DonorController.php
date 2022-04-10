@@ -124,7 +124,7 @@ class DonorController extends Controller
         $orderby = null;
         if ($user &&  $user->latitude &&  $user->longitude) {
             $orderby = 'distance';
-            $query->select('*',  DB::raw(" ( 6371 * acos( cos( radians($user->latitude) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians($user->longitude) ) + sin( radians($user->latitude) ) * sin( radians( latitude ) ) ) ) As distance"));
+            $query->select('*',  DB::raw(" (6371 * acos(cos(radians(" . $user->latitude . ")) * cos(radians(latitude)) * cos(radians(longitude) - radians(" . $user->longitude . ")) + sin(radians(" . $user->latitude . ")) * sin(radians(latitude)))) AS distance"));
         }
 
         if ($request->group) {
@@ -146,7 +146,21 @@ class DonorController extends Controller
     public function bloodrequest(User $donor)
     {
 
-        $hospital =  Hospital::all();
+        $query = Hospital::query();
+
+        $user = Auth::user();
+
+        $orderby = null;
+        if ($user &&  $user->latitude &&  $user->longitude) {
+            $orderby = 'distance';
+            $query->select('*',  DB::raw(" (6371 * acos(cos(radians(" . $user->latitude . ")) * cos(radians(latitude)) * cos(radians(longitude) - radians(" . $user->longitude . ")) + sin(radians(" . $user->latitude . ")) * sin(radians(latitude)))) AS distance"));
+        }
+        if ($orderby) {
+            $query->orderby($orderby);
+        }
+        // dd($query->toSql());
+        $hospital = $query->get();
+        // dd( $hospital);
         return view('frontend.bloodrequest', compact('donor', 'hospital'));
     }
 }

@@ -10,8 +10,12 @@
                             Name
                         </th>
                         <th>
+                            Distance
+                        </th>
+                        <th>
                             Blood Request
                         </th>
+                        
                     </tr>
                 </thead>
                 <tbody style="color: black">
@@ -20,6 +24,9 @@
                         <tr>
                             <td>
                                 {{ ucfirst($single->name) }}
+                            </td>
+                            <td>
+                                {{ $single->distance? round($single->distance, 2). ' KM': '' }}
                             </td>
                             <td>
                                 <a rel="tooltip" class="btn btn-success btn-link"

@@ -44,6 +44,12 @@
                                             <th>
                                                 Email
                                             </th>
+                                            <th>
+                                                Latitude
+                                            </th>
+                                            <th>
+                                                Longititude
+                                            </th>
 
                                             <th class="text-right">
                                                 Actions
@@ -59,10 +65,16 @@
                                                     {{ $single->name }}
                                                 </td>
                                                 <td>
-                                                    {{ ucfirst($single->address) }}
+                                                    {{ ($single->address) }}
                                                 </td>
                                                 <td>
-                                                    {{ ucfirst($single->email) }}
+                                                    {{ ($single->email) }}
+                                                </td>
+                                                <td>
+                                                    {{ ($single->latitude) }}
+                                                </td>
+                                                <td>
+                                                    {{ ($single->longitude) }}
                                                 </td>
 
 

@@ -18,8 +18,8 @@ class CreateHospitalsTable extends Migration
             $table->string('name')->nullable();
             $table->string('address')->nullable();
             $table->string('email')->nullable();
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->softDeletes();
             $table->timestamps();
           

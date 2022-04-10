@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->bigInteger('mobile')->nullable();
             $table->string('city')->nullable();
             $table->string('area')->nullable();
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->unsignedBigInteger('blood_id')->nullable();
             $table->foreign('blood_id')->references('id')->on('bloods')->onDelete('set null');
 

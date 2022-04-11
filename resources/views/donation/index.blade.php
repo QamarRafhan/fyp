@@ -46,7 +46,7 @@
                                                 Request Date
                                             </th>
 
-                                            <th>
+                                            {{-- <th>
                                                 Blood Extraction Date
                                             </th>
 
@@ -56,7 +56,7 @@
                                             </th>
                                             <th>
                                                 Status
-                                            </th>
+                                            </th> --}}
 
                                            
                                             <th class="text-right">
@@ -83,7 +83,7 @@
                                                 <td>
                                                     {{ ucfirst($single->created_at) }}
                                                 </td>
-                                                <td>
+                                                {{-- <td>
                                                     {{ ucfirst($single->email) }}
                                                 </td>
                                                 <td>
@@ -91,7 +91,7 @@
                                                 </td>
                                                 <td>
                                                     {{ ucfirst($single->username) }}
-                                                </td>
+                                                </td> --}}
 
 
                                                 <td class="td-actions text-right">

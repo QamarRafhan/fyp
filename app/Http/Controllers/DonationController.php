@@ -6,6 +6,7 @@ use App\Models\Donation;
 use App\Models\Hospital;
 use App\Models\Receptor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DonationController extends Controller
 {
@@ -16,6 +17,16 @@ class DonationController extends Controller
      */
     public function index(Request $request, Donation $model)
     {
+        $user = Auth::user();
+        if($user->role == 'receptor'){
+            $model = $model->where('receptor_id', '=', $user->id);
+        }
+        else{
+            if($user->role == 'donor'){
+                $model = $model->where('donor_id', '=', $user->id);
+            }
+            
+        }
         return view('donation.index', [
             'donation' => $model->paginate(
                 $request->has('per_page') ?
@@ -64,6 +75,11 @@ class DonationController extends Controller
      */
     public function show(Donation $donation)
     {
+        $donation - null;
+        $user = Auth::user();
+        if($user->role == 'donor'){
+            $donation = Donation::where('donor_id', '=', $user->id)->first();
+        }
 
         return view('donation.view', ["donation" => $donation]);
     }

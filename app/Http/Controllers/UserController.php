@@ -27,4 +27,48 @@ class UserController extends Controller
                 config('app.global.record_per_page')
         )]);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  Receptor $receptor
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('user.index')->withStatusSuccess(__('User deleted successfully.'));
+    }
+
+
+        /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+   
+
+
+    public function edit($id)
+    {
+        // get the user
+        $user = User::find($id);
+        
+
+        // show the edit form and pass the shark
+        return view('users.edit', compact('user'));
+    }
+
+
+    public function update(Request $request, User $user)
+    {
+        $data = $request->only($user->getFillable());
+
+        $user->fill($data);
+        $user->save();
+
+        return back()->withStatusSuccess(__('User Updated successfully.'));
+    }
 }
+

@@ -59,9 +59,9 @@
                                             </th> --}}
 
                                            
-                                            <th class="text-right">
+                                            {{-- <th class="text-right">
                                                 Actions
-                                            </th>
+                                            </th> --}}
                                         </tr>
                                     
                                     <tbody>
@@ -94,7 +94,7 @@
                                                 </td> --}}
 
 
-                                                <td class="td-actions text-right">
+                                                {{-- <td class="td-actions text-right">
 
                                                     <a rel="tooltip" class="btn btn-success btn-link"
                                                         href="{{ route('donation.edit', ['donation' => $single->id]) }}"
@@ -118,7 +118,7 @@
                                                         @method('delete')
                                                         @csrf
                                                     </form>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>

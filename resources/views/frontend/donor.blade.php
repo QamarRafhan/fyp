@@ -244,6 +244,8 @@
                     @auth
               
                 <?php
+
+                    if(auth()->user()->latitude && auth()->user()->longitude) {
                         $data[0][]=auth()->user()->name;
                         $data[0][]=auth()->user()->latitude;
                         $data[0][]=auth()->user()->longitude;
@@ -251,15 +253,17 @@
                         
                 
                         $index=1;
+                    }
 
                 ?>
             @endauth
                     @foreach ($donor as $key=>$single)
                     <?php 
-                    $data[$key+$index][]=$single->name;
-                    $data[$key+$index][]=$single->latitude;
-                    $data[$key+$index][]=$single->longitude;
-                    
+                    if($single->latitude && $single->longitude) {
+                        $data[$key+$index][]=$single->name;
+                        $data[$key+$index][]=$single->latitude;
+                        $data[$key+$index][]=$single->longitude;
+                    }
                     ?>
                   
                         <tr>

@@ -261,8 +261,9 @@
                     <?php 
                     if($single->latitude && $single->longitude) {
                         $data[$key+$index][]=$single->name;
-                        $data[$key+$index][]=$single->latitude;
                         $data[$key+$index][]=$single->longitude;
+                        $data[$key+$index][]=$single->latitude;
+
                     }
                     ?>
                   

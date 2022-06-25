@@ -197,69 +197,6 @@
     </div>
 </div>
 
-<section>
-    <div class="container">
-        <div class="contatct-form fon-zero txt-center">
-            <h1 class="txt-center fon-40">CONTACT <span class="colr-red">US</span></h1>
-
-            <div class="form wd-44 mrgn-auto">
-                <div class="card card-login mb-3">
-
-
-                    <div class="card-body">
-                        <div class="bmd-form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons">person</i>
-                                    </span>
-                                </div>
-                                <input type="text" name="name" class="form-control" placeholder="Enter Your Name" value="" required="">
-                            </div>
-                        </div>
-                        <div class="bmd-form-group mt-3 is-filled">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons">email</i>
-                                    </span>
-                                </div>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Enter Your Email" value="" required="">
-                            </div>
-                        </div>
-                        <div class="bmd-form-group mt-3 is-filled">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons"><span class="material-icons-outlined">
-                                                subject
-                                            </span></i>
-                                    </span>
-                                </div>
-                                <textarea type="text" name="subject" id="subject" class="form-control" placeholder="Enter Your Subject" value="" required=""></textarea>
-                            </div>
-                        </div>
-                        <div class="bmd-form-group mt-3 is-filled">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons">message</i>
-                                    </span>
-                                </div>
-                                <textarea type="text" name="message" id="message" class="form-control" placeholder="Enter Your Message" value="" required=""></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer justify-content-center">
-                        <button type="submit" class="btn btn-success btn-link btn-lg btn_bg_color">Send</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-</section>
 @endsection
 @push('js')
 <script>

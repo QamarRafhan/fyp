@@ -8,11 +8,13 @@
 
 <body class="{{ $class ?? '' }}">
 
-    <div class="header"
+    <div class="header custom__header"
         style="background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%),url({{ asset('images/backgurnd.jpg') }});">
         <div class="header-top">
             <div class="logo">
-                <img src="{{ asset('images/logo.jpeg') }}" alt="logo" class="logo-pic">
+                <a href="/">
+               <h3 style="color:#fff;font-weight: 900;">BLOOD BANK</h3>
+                </a>
             </div>
             
                 <ul class="meanu-bar">
@@ -21,9 +23,6 @@
                     </a>
                     <a href="/donors" class="data">
                         <li> BloodDonate </li>
-                    </a>
-                    <a href="#" class="data">
-                        <li> Hostpitallocatio</li>
                     </a>
                     <a href="/login" class="data">
                         <li> Log in</li>
@@ -37,7 +36,7 @@
             <div class="clr"></div>
         </div>
         <div class="hading">
-            <h1 class="boold">UMT BLOOD COMMUNITY PAKISTAN</h1>
+            <h1 class="boold">BLOOD BANK MANAGEMENT SYSTEM</h1>
         </div>
     </div>
     @yield('content')

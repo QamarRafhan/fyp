@@ -149,3 +149,6 @@
     width: 60px;
     display: inline-block;
 }
+.custom__header a:hover, a:focus{
+    color: #000000;
+}

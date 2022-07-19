@@ -247,8 +247,8 @@
 
                     if(auth()->user()->latitude && auth()->user()->longitude) {
                         $data[0][]=auth()->user()->name;
-                        $data[0][]=auth()->user()->longitude;
                         $data[0][]=auth()->user()->latitude;
+                        $data[0][]=auth()->user()->longitude;
                         $data[0][]='http://maps.google.com/mapfiles/ms/icons/green-dot.png';
                         
                 
@@ -261,8 +261,9 @@
                     <?php 
                     if($single->latitude && $single->longitude) {
                         $data[$key+$index][]=$single->name;
-                        $data[$key+$index][]=$single->longitude;
                         $data[$key+$index][]=$single->latitude;
+                        $data[$key+$index][]=$single->longitude;
+                       
 
                     }
                     ?>

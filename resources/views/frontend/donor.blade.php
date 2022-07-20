@@ -1,6 +1,8 @@
 @extends('home.index')
+<div class="doantion___header">
+    @section('content')
+</div>
 
-@section('content')
     <section style="background: url(images/ward.jpg) no-repeat center ; background-size: cover">
         <div class="container">
             <div class="row">

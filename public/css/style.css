@@ -152,3 +152,10 @@
 .custom__header a:hover, a:focus{
     color: #000000;
 }
+.logout button:hover{
+    color: #000000 !important;
+} 
+.doantion___header{
+    height: 100px;
+    overflow: hidden;
+}
